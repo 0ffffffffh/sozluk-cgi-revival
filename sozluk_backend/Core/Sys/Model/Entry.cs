@@ -71,8 +71,8 @@ namespace sozluk_backend.Core.Sys.Model
         {
             DateTime dt;
 
-            Baslik = baslik;
-            Suser = suser.Trim();
+            Baslik = baslik.Trim().ToLower();
+            Suser = suser.Trim().ToLower();
 
             if (!string.IsNullOrEmpty(date))
             {

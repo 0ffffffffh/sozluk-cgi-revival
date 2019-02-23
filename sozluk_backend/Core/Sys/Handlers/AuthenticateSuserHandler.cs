@@ -26,7 +26,7 @@ namespace sozluk_backend.Core.Sys.Handlers
             suser = GetValue<string>("Suser");
 
 
-            pwd = GetValue<string>("Pass");
+            pwd = GetValue<string>("Pass",false);
 
 
             if (!Suser.IsSuserNameAllowed(suser))

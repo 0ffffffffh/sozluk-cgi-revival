@@ -26,9 +26,7 @@ namespace sozluk_backend.Core.Edi
             bool registered;
 
             string pwdHash = Suser.SecurePassword(pwd);
-
-            suser = suser.Trim();
-
+            
             if (!Suser.IsSuserNameAllowed(suser))
                 return AddSuserResult.HasNotAllowedChar;
 

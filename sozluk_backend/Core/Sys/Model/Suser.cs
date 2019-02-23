@@ -64,7 +64,7 @@ namespace sozluk_backend.Core.Sys.Model
         public Suser(ulong id, string suser, string passHash)
         {
             this.InternalId = id;
-            this.SuserName = suser.Trim();
+            this.SuserName = suser.Trim().ToLower();
             this.PasswordHash = passHash;
         }
 

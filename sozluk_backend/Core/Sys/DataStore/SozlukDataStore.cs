@@ -417,7 +417,7 @@ namespace sozluk_backend.Core.Sys.DataStore
         public static Suser GetSuser(string suser)
         {
 
-            string query = string.Format(GET_SUSER_SQL, suser);
+            string query = string.Format(GET_SUSER_SQL, suser.Trim().ToLower());
             Suser suserObject = null;
 
             if (!CacheManager.TryGetCachedQueryResult<Suser>(query,out suserObject))

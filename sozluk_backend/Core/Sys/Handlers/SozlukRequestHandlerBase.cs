@@ -19,9 +19,26 @@ namespace sozluk_backend.Core.Sys.Handlers
             this.req = request;
         }
 
-        public T GetValue<T>(string key)
+        public T GetValue<T>(string key, bool sanitSql=true)
         {
-            return this.req.GetItem<T>(key);
+            T val = this.req.GetItem<T>(key);
+
+            if (typeof(T) == typeof(string))
+            {
+                string sval = (string)(object)val;
+
+                if (sval == null)
+                    return default(T); //null
+
+                sval = sval.ToLower();
+
+                if (sanitSql)
+                    sval = InputHelper.SanitizeForSQL(sval);
+
+                return (T)(object)sval;
+            }
+
+            return val;
         }
         
         public bool HasKey(string key)
